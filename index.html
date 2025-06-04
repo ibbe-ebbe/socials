@@ -4,15 +4,48 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ibrahim Eehaab</title>
- <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAt9LrAPLw7QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEREREREREAEREAAAAREQARERERERERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiAAAAIgAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAH/gAAD/8AAB//AAA" rel="icon" type="image/x-icon">
+  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAt9LrAPLw7QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEREREREREAEREAAAAREQARERERERERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiAAAAIgAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAH/gAAD/8AAB//AAA" rel="icon" type="image/x-icon">
   <style>
+    :root {
+      --bg-color-light: #f8f9fa;
+      --text-color-light: #212529;
+      --bg-color-dark: #121212;
+      --text-color-dark: #f1f1f1;
+      --link-color-light: #007bff;
+      --link-color-dark: #66b2ff;
+    }
+
     body {
-      background-color: #f8f9fa;
-      color: #212529;
+      background-color: var(--bg-color-light);
+      color: var(--text-color-light);
       font-family: 'Helvetica Neue', sans-serif;
       text-align: center;
       padding: 40px 20px;
       margin: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-theme {
+      background-color: var(--bg-color-dark);
+      color: var(--text-color-dark);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background 0.3s;
+      color: inherit;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(0,0,0,0.05);
     }
 
     img.profile {
@@ -28,17 +61,22 @@
       font-size: 2em;
       margin: 10px 0 5px;
     }
-   .verified-icon {
+
+    .verified-icon {
       width: 22px;
       height: 22px;
     }
 
     .contact-info a {
       display: inline-block;
-      color: #007bff;
+      color: var(--link-color-light);
       text-decoration: none;
       margin: 5px 10px;
       font-size: 0.95em;
+    }
+
+    body.dark-theme .contact-info a {
+      color: var(--link-color-dark);
     }
 
     .contact-info a:hover {
@@ -49,6 +87,10 @@
       font-size: 1em;
       color: #555;
       margin: 10px 0 30px;
+    }
+
+    body.dark-theme p {
+      color: #bbb;
     }
 
     .link {
@@ -66,6 +108,12 @@
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
+    body.dark-theme .link {
+      background-color: #1e1e1e;
+      color: #eee;
+      border-color: #444;
+    }
+
     .link:hover {
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
       transform: translateY(-2px);
@@ -73,6 +121,9 @@
   </style>
 </head>
 <body>
+
+  <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">Dark</button>
+
   <img class="profile" src="https://scontent.fmle2-2.fna.fbcdn.net/v/t39.30808-6/497795598_10233397015805758_798903710208692634_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=xohEqwi5A-8Q7kNvwHA7vCn&_nc_oc=AdmEZQ2AruLNiYZsRP9JTssNDnocs3zQzWH5bdBiFKzLmuzH9M4hH9iQdSihh3WIsn8&_nc_zt=23&_nc_ht=scontent.fmle2-2.fna&_nc_gid=iqwrsrxVPTHw19vawj8fHA&oh=00_AfKyhu1NEp27iDSMJGtLTh2lJI4PNpRueG0LiLVD9MEtOQ&oe=6840946A" alt="Ibrahim Eehaab" />
 
   <h1>
@@ -91,6 +142,18 @@
   <a class="link" href="https://m.facebook.com/ibbe.ebbe/" target="_blank">Facebook</a>
   <a class="link" href="https://tiktok.com/@ibbe.ebbe" target="_blank">TikTok</a>
   <a class="link" href="https://soundcloud.com/ibbe_ebbe" target="_blank">SoundCloud</a>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const button = document.getElementById('themeToggleBtn');
+
+      body.classList.toggle('dark-theme');
+
+      const isDark = body.classList.contains('dark-theme');
+      button.textContent = isDark ? 'Light' : 'Dark';
+    }
+  </script>
 
 </body>
 </html>
