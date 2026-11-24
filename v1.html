@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ibrahim Eehaab</title>
+  <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAt9LrAPLw7QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEREREREREAEREAAAAREQARERERERERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiAAAAIgAAACAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAH/gAAD/8AAB//AAA" rel="icon" type="image/x-icon">
+  <style>
+    :root {
+      --bg-color-light: #f8f9fa;
+      --text-color-light: #212529;
+      --bg-color-dark: #121212;
+      --text-color-dark: #f1f1f1;
+      --link-color-light: #007bff;
+      --link-color-dark: #66b2ff;
+    }
+
+    body {
+      background-color: var(--bg-color-light);
+      color: var(--text-color-light);
+      font-family: 'Helvetica Neue', sans-serif;
+      text-align: center;
+      padding: 40px 20px;
+      margin: 0;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark-theme {
+      background-color: var(--bg-color-dark);
+      color: var(--text-color-dark);
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background 0.3s;
+      color: inherit;
+    }
+
+    .theme-toggle:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    img.profile {
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 10px 0 5px;
+    }
+
+    .verified-icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    .contact-info a {
+      display: inline-block;
+      color: var(--link-color-light);
+      text-decoration: none;
+      margin: 5px 10px;
+      font-size: 0.95em;
+    }
+
+    body.dark-theme .contact-info a {
+      color: var(--link-color-dark);
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    p {
+      font-size: 1em;
+      color: #555;
+      margin: 10px 0 30px;
+    }
+
+    body.dark-theme p {
+      color: #bbb;
+    }
+
+    .link {
+      display: block;
+      background-color: #ffffff;
+      color: #212529;
+      padding: 14px 20px;
+      margin: 10px auto;
+      width: 90%;
+      max-width: 400px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    body.dark-theme .link {
+      background-color: #1e1e1e;
+      color: #eee;
+      border-color: #444;
+    }
+
+    .link:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="theme-toggle" id="themeToggleBtn" onclick="toggleTheme()">Dark</button>
+
+  <img class="profile" src="https://raw.githubusercontent.com/ibbe-ebbe/socials/refs/heads/main/497795598_10233397015805758_798903710208692634_n.jpg" alt="Ibrahim Eehaab" />
+
+  <h1>
+    Ibrahim Eehaab
+    <img class="verified-icon" src="https://img.icons8.com/?size=96&id=98A4yZTt9abw&format=png"/>
+  </h1>
+  
+  <div class="contact-info">
+    <a href="tel:+9609735659">Mobile: +960 9735659</a>
+    <a href="mailto:i@eehaab.com">Email: i@eehaab.com</a>
+  </div>
+
+  <p> IT PROFESSIONAL · DIGITAL STRATEGIST · GRAPHIC DESIGNER</p>
+
+  <a class="link" href="https://instagram.com/ibbe.ebbe" target="_blank">Instagram</a>
+  <a class="link" href="https://m.facebook.com/ibbe.ebbe/" target="_blank">Facebook</a>
+  <a class="link" href="https://tiktok.com/@ibbe.ebbe" target="_blank">TikTok</a>
+  <a class="link" href="https://soundcloud.com/ibbe_ebbe" target="_blank">SoundCloud</a>
+
+  <!-- Instagram Feed -->
+  <h2>Instagram Feed</h2>
+  <!-- SnapWidget -->
+  <iframe src="https://snapwidget.com/embed/1099099" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:480px; height:160px" title="Posts from Instagram"></iframe>
+
+  
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      const button = document.getElementById('themeToggleBtn');
+
+      body.classList.toggle('dark-theme');
+
+      const isDark = body.classList.contains('dark-theme');
+      button.textContent = isDark ? 'Light' : 'Dark';
+    }
+  </script>
+
+</body>
+</html>
